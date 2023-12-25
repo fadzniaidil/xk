@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div class="row py-5">
+              <div class="col z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">About</h3>
+                </div>
+                <p class="text-lg mb-0">
+                  EduSphere helps Sijil Pelajaran Malaysia (SPM) graduates in choosing the program for their degree level. The programs are limited to engineering (mechanical, electric and electronic, civil, chemical) and Information Technology (IT) program. The aim of this web application is to suggest program in the university which is suitable for the SPM graduates based on their SPM result.
+					<br>
+                </p>
+              </div>
+            </div>
+          </div>
+         
+   	<section class="py-3">
+      <div class="container">
+        <div class="col">
+          <div class="col-lg-6">
+            <h3 class="">Machine Learning Model Comparison</h3>
+          </div>
+          <div class="col">
+            <label class="py-2">In developing this webs application, we used classification model in machine learning. The classification model is used to predict suitable program for the student based on their grade result in Sijil Pelajaran Malaysia (SPM) examination. There are three model used which are Desicion Tree model, Gaussian Naive Bayes model and Support Vector Machine model. Based on the test that we had done, the most highest accuracy among the model is Decision Tree with 82.93% accuracy comparing to Gaussian Naive Bayes with 32.08% accuracy and Support Vector Machine with 52.01% accuracy. Because of that, we choose to use the Desicion Tree model in developing the web application.
+
+					<br><br>
+					The first diagram is the confusion matrix for decision tree that shows the accuracy of it which is 80.92% based on the true label and predicted label predicted correctly. The second diagram is Support Vector Machine confusion matrix with 52.01% accuracy and the last diagram is Gaussian Naive Bayes confusion matrix with 32.08% accuracy.
+					</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card card-plain">
+              <div class="card-header p-0 position-relative">
+                <a class="d-block blur-shadow-image">
+                  <img src="{{ url_for('static', filename='assets/custom/dc2.jpg') }}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body px-0">
+                <h5>
+                  <a href="javascript:;" class="text-dark font-weight-bold">Decision Tree Model</a>
+                </h5>
+                <p>
+                 Shows the accuracy of it which is 80.92%
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-plain">
+              <div class="card-header p-0 position-relative">
+                <a class="d-block blur-shadow-image">
+                  <img src="{{ url_for('static', filename='assets/custom/svm.jpg') }}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body px-0">
+                <h5>
+                  <a href="javascript:;" class="text-dark font-weight-bold">Support Vector Machine</a>
+                </h5>
+                <p>
+                  Shows the accuracy of it which is 52.01%
+                </p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-plain">
+              <div class="card-header p-0 position-relative">
+                <a class="d-block blur-shadow-image">
+                  <img src="{{ url_for('static', filename='assets/custom/gnb.jpg') }}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body px-0">
+                <h5>
+                  <a href="javascript:;" class="text-dark font-weight-bold">Gaussian Naive Bayes</a>
+                </h5>
+                <p>
+                  Shows the accuracy of it which is 32.08%
+                </p>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+      </div>
+    </div>
+    
+  </div>
+  
+
+{% endblock %}

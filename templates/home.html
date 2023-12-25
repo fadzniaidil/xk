@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <div class="row py-5">
+              <div class="col-lg-8 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">Program suggestion</h3>
+                </div>
+                <div>
+                  <form action="{{ url_for('predict') }}" method="post">
+                  <table class="table">
+                    
+                    <tr>
+                      <td>Bahasa Melayu</td>
+                      <td>
+                        <select class="form-select" name="a">
+            <option value="a">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Bahasa Inggeris</td>
+                      <td>
+                        <select class="form-select" name="b">
+            <option value="b">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mathematics</td>
+                      <td>
+                        <select class="form-select" name="c">
+            <option value="c">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Additional Mathematics</td>
+                      <td>
+                        <select class="form-select" name="d">
+            <option value="d">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Chemistry</td>
+                      <td>
+                        <select class="form-select" name="e">
+            <option value="e">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Physics</td>
+                      <td>
+                        <select class="form-select" name="f">
+            <option value="f">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Biology</td>
+                      <td>
+                        <select class="form-select" name="g">
+            <option value="g">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Sejarah</td>
+                      <td>
+                        <select class="form-select" name="h">
+            <option value="h">Select grade</option>
+            <option value="4.00">A+</option>
+            <option value="3.75">A</option>
+            <option value="3.50">A-</option>
+            <option value="3.25">B+</option>
+            <option value="3.00">B</option>
+            <option value="2.75">C+</option>
+            <option value="2.50">C</option>
+            <option value="2.25">D</option>
+            <option value="2.00">E</option>
+            <option value="1.75">G</option>
+        </select>
+                      </td>
+                    </tr>
+                  </table>
+                  <input class="btn btn-primary btn-block" type="submit">
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+  </div>
+  
+
+{% endblock %}
