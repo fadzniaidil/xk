@@ -145,3 +145,4 @@ Werkzeug==3.0.1
 wget==3.2
 xgboost==2.0.0
 yarl==1.9.2
+gunicorn==21.2.0
