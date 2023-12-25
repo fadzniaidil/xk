@@ -78,7 +78,6 @@ nbformat==5.9.2
 nest-asyncio==1.5.7
 notebook==7.0.3
 notebook_shim==0.2.3
-numpy==1.26.1
 open-interpreter==0.1.1
 openai==0.27.10
 overrides==7.4.0
