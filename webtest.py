@@ -1,9 +1,11 @@
 import os
 import flask
-from flask import Flask,render_template,request,redirect,jsonify, url_for
+from flask import Flask,render_template,request,redirect,jsonify, url_for,session
+import hashlib
 import pickle
 import numpy as np
-
+import sqlite3 as sql
+from model import *
 
 
 app = Flask(__name__)
@@ -21,6 +23,7 @@ def future():
 def about():
 	return render_template('about.html')
 
+
 @app.route("/predict", methods=['POST'])
 def predict():
 	
@@ -32,6 +35,8 @@ def predict():
 	data6 = request.form['f']
 	data7 = request.form['g']
 	data8 = request.form['h']
+
+	user_data = session.get('user_data')
 
 	arr = np.array([[data1, data2, data3, data4, data5, data6, data7, data8]])
 	loaded_model = pickle.load(open('fier.pkl', 'rb'))
@@ -54,6 +59,7 @@ def predict():
 				'Universiti Teknikal Malaysia Melaka (UTeM)'
 				]
 		};
+
 	elif pred == 2:
 		data = {
 			'title':'Electrical and Electronic Engineering',
@@ -115,10 +121,49 @@ def predict():
 				]
 		};
 
+	saving_data(data1,data2,data3,data4,data5,data6,data7,data8,data['title']);
 
-
-	return render_template('result.html', data=data)
+	return render_template('result.html', data=data,user_data=user_data)
 	
+
+@app.route('/signup',methods=['POST'])
+def signup():
+
+	first_name = request.form['first_name']
+	last_name = request.form['last_name']
+	email = request.form['email']
+	password = request.form['password']
+
+	signup_user(first_name,last_name,email,hashlib.md5(password.encode('utf-8')).hexdigest())
+	flash('User created', 'msg')
+	return redirect('/')
+
+@app.route('/login',methods=['POST'])
+def login():
+	email = request.form['email']
+	password = request.form['password']
+
+	result = login_user(email,hashlib.md5(password.encode('utf-8')).hexdigest())
+
+	if result:
+		session['login'] = True
+		session['user_data'] = { 'first_name' : result[1],'last_name': result[2], 'email':result[3]}
+		return redirect('/dashboard')
+	else:
+		return redirect('/login')
+
+@app.route('/logout')
+def logout():
+	session['login'] = False
+	return redirect('/login')
+
+@app.route('/dashboard')
+def dashboard():
+	user_data = session.get('user_data')
+	return render_template('dashboard.html',user_data=user_data)
+
+	
+
 if __name__ == "__main__":
      app.secret_key = "!mzo53678912489"
      app.run(debug=True)

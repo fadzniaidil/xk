@@ -32,25 +32,17 @@
       </button>
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages2" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('home') }}">
-              <i >Home</i>
-            </a>
-          </li>
-
           <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('about') }}">
-              <i link="{{ url_for('about') }}">About</i>
-            </a>
-          </li>
+              <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('dashboard') }}">
+                <i link="{{ url_for('dashboard') }}">Dashboard</i>
+              </a>
+            </li>
 
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('future') }}">
-              <i>Future Work</i>
-             
-            </a>
-          </li>
-          
+            <li class="nav-item dropdown dropdown-hover mx-2">
+              <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('logout') }}">
+                <i link="{{ url_for('logout') }}">Logout</i>
+              </a>
+            </li>
         </ul>
       </div>
     </div>
@@ -62,8 +54,8 @@
       <div class="row">
         <div class="col-md-8 mx-auto">
           <div class="text-center">
-            <h1 class="text-white">EduSphere</h1>
-            <h3 class="text-white">Universities Program Selection</h3>
+            <h3 class="text-white">Welcome</h3>
+            <h5 class="text-white">{{user_data.first_name}} {{user_data.last_name}}</h5>
           </div>
         </div>
       </div>
@@ -71,7 +63,7 @@
   </div>
 
  {% block content %} {% endblock %}
-  <footer class="footer pt-5 mt-5">
+ <footer class="footer pt-5 mt-5">
     <div class="container">
       <div class=" row">
         <div class="col-12">
@@ -86,17 +78,7 @@
       </div>
     </div>
   </footer>
-  <script>
-    function swap_login(){
-      document.getElementById('signup').style.display = 'block';
-       document.getElementById('login').style.display = 'none';
-    }
-
-    function swap_signup(){
-      document.getElementById('signup').style.display = 'none';
-       document.getElementById('login').style.display = 'block';
-    }
-  </script>
+  
 </body>
 
 </html>
